@@ -1,0 +1,9 @@
+TOKEN "test_endpoint_endpoint_read_0386" READ
+
+NODE endpoint
+SQL >
+
+    SELECT * FROM events_100k
+    where product_id='6a053a06-1aaa-11eb-93b7-acde48001122'
+
+
