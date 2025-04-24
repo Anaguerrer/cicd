@@ -15,4 +15,4 @@ jobs:
       - name: Install Tinybird CLI
         run: curl https://tinybird.co | sh
       - name: run datasource
-        run: tb --cloud datasource sync raw_gcs_product --token ${{ env.TINYBIRD_TOKEN }}
+        run: tb --cloud datasource sync raw_gcs_product
