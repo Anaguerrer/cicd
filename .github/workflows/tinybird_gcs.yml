@@ -1,4 +1,4 @@
-name: Tinybird - GCS - test
+name: Tinybird - test - GCS
 
 on:
   workflow_dispatch:
@@ -8,11 +8,11 @@ env:
   TINYBIRD_TOKEN: ${{ secrets.TINYBIRD_TOKEN }}
 
 jobs:
-  cd:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Install Tinybird CLI
         run: curl https://tinybird.co | sh
-      - name: run datasource
-        run: tb --cloud datasource sync raw_gcs_product
+      - name: Deploy project
+        run: tb --cloud --host ${{ env.TINYBIRD_HOST }} --token ${{ env.TINYBIRD_TOKEN }} datasource sync raw_gcs_branch
