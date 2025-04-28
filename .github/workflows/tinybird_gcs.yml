@@ -11,8 +11,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Tinybird CLI
-        run: curl https://tinybird.co | sh
-      - name: Deploy project
-        run: tb --cloud --host ${{ env.TINYBIRD_HOST }} --token ${{ env.TINYBIRD_TOKEN }} datasource sync raw_gcs_branch
+      - name: sync datasource
+        run: curl -X POST "https://api.tinybird.co/v0/datasources/raw_gcs_journal_delta/scheduling/runs" -H "Authorization: Bearer p.eyJ1IjogImQ2YTJkMjM5LTViNWUtNDFmYy1iYzk1LTQwZDM2NDQyOGQ3MyIsICJpZCI6ICJlNTg3ZDhhNi03NWM0LTRlYzMtYTgwYy02ODFiYmU5MzNjMzYiLCAiaG9zdCI6ICJldV9zaGFyZWQifQ.vrIS1WybcOuA5tchPE-I1NLki_EDLpGC8UtxqBNEJ9k"
