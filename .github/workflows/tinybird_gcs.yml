@@ -12,4 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sync datasource
-        run: curl -X POST "https://api.tinybird.co/v0/datasources/raw_gcs_journal_delta/scheduling/runs" -H "Authorization: Bearer p.eyJ1IjogImQ2YTJkMjM5LTViNWUtNDFmYy1iYzk1LTQwZDM2NDQyOGQ3MyIsICJpZCI6ICJlNTg3ZDhhNi03NWM0LTRlYzMtYTgwYy02ODFiYmU5MzNjMzYiLCAiaG9zdCI6ICJldV9zaGFyZWQifQ.vrIS1WybcOuA5tchPE-I1NLki_EDLpGC8UtxqBNEJ9k"
+        run: |
+          curl -X POST "https://api.tinybird.co/v0/datasources/raw_gcs_journal_delta/scheduling/runs" \
+            -H "Authorization: Bearer ${{ env.TINYBIRD_TOKEN }}"
